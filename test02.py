@@ -14,6 +14,8 @@ for num in range(1000):
     db.execute(sql)
 c = db.cursor()
 c.execute("select * from users where id = 1")
+idx = 0
 for row in c:
-    if row > 995:
+    idx +=1
+    if idx > 995:
         print(row) 
