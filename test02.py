@@ -11,6 +11,7 @@ create table users (
 db.execute(sql)
 #for num in range(1000):
 for num in range(5):
+    print(str(num))
     sql = "insert into users values (" + str(num) + ", 'foo', 'bar')"
     db.execute(sql)
 c = db.cursor()
