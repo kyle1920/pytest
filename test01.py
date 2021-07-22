@@ -14,4 +14,4 @@ db.execute(sql)
 c = db.cursor()
 c.execute("select * from users where id = 1")
 for row in c:
-    print( row )
+    print(row) 
