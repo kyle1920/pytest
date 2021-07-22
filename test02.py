@@ -9,13 +9,14 @@ create table users (
 );
 """
 db.execute(sql)
-for num in range(1000):
+#for num in range(1000):
+for num in range(5):
     sql = "insert into users values (" + str(num) + ", 'foo', 'bar')"
     db.execute(sql)
 c = db.cursor()
 c.execute("select * from users where id = 1")
-idx = 0
+#idx = 0
 for row in c:
-    idx +=1
-    if idx > 995:
-        print(row) 
+ #   idx +=1
+ #   if idx > 995:
+    print(row)
