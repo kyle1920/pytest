@@ -31,6 +31,7 @@ def readTable():
         idx +=1
         if idx > 9994:
             print(row)
+            return row
     #for row in c:
     #    print(row)
 
