@@ -7,6 +7,12 @@ options = {
 
 initialize(**options)
 
+statsd.service_check(
+    check_name="application.service_check",
+    status="0",
+    message="Application is OK",
+)
+
 # 必要なモジュールの取り込み
 from flask import Flask
 
