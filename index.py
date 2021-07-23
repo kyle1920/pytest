@@ -34,7 +34,7 @@ def createTable():
     """
     db.execute(sql)
 
-    #return "Func createTable"
+    return "Func createTable"
 
 # データのインサート
 def insertTable():
@@ -44,7 +44,7 @@ def insertTable():
         sql = "insert into users values (" + str(num + 1) + ", 'foo', 'bar')"
         db.execute(sql)
 
-    #return "Func insertTable"
+    return "Func insertTable"
 
 #データの読み出し
 def readTable():
@@ -61,7 +61,7 @@ def readTable():
     #for row in c:
     #    print(row)
 
-    #return "Func readTable"
+    return "Func readTable"
 
 # ルート( / )へアクセスがあった時の処理を記述 --- (*2)
 @app.route("/")
