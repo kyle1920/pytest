@@ -1,8 +1,8 @@
 import sqlite3
-from ddtrace import Pin, patch
+#from ddtrace import Pin, patch
 
 def main():
-    patch(sqlite3=True)
+#    patch(sqlite3=True)
 
     db = sqlite3.connect(":memory:")
     sql = """
@@ -13,6 +13,8 @@ def main():
     );
     """
     db.execute(sql)
+
+
     for num in range(10000):
     #for num in range(5):
         print(str(num))
