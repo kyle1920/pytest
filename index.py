@@ -23,6 +23,7 @@ db = sqlite3.connect(":memory:", check_same_thread=False)
 sql = ""
 
 # テーブル作成
+@tracer.wrap('createTable', service='sample-app')
 def createTable():
 
     sql = """
@@ -44,6 +45,7 @@ def insertTable():
         db.execute(sql)
 
 #データの読み出し
+@tracer.wrap('readTable', service='sample-app')
 def readTable():
     c = db.cursor()
     #c.execute("select * from users where id = 1")
