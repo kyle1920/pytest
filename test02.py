@@ -1,8 +1,8 @@
 import sqlite3
-from ddtrace import Pin, patch
+#from ddtrace import Pin, patch
 
 
-patch(sqlite3=True)
+#patch(sqlite3=True)
 
 db = sqlite3.connect(":memory:")
 sql = """
