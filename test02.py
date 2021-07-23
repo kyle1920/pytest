@@ -2,6 +2,8 @@ import sqlite3
 from ddtrace import Pin, patch
 patch(sqlite3=True)
 
+print("test02.py")
+
 def createTable():
 
     db = sqlite3.connect(":memory:")
