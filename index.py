@@ -22,9 +22,8 @@ db = sqlite3.connect(":memory:", check_same_thread=False)
 # sql文字列の初期化
 sql = ""
 
-# ルート( / )へアクセスがあった時の処理を記述 --- (*2)
-@app.route("/")
-def root():
+# テーブル作成
+def createTable():
 
     sql = """
     create table users (
@@ -35,12 +34,16 @@ def root():
     """
     db.execute(sql)
 
+# データのインサート
+def insertTable():
     for num in range(10000):
     #for num in range(5):
     #    print(str(num))
         sql = "insert into users values (" + str(num + 1) + ", 'foo', 'bar')"
         db.execute(sql)
 
+#データの読み出し
+def readTable():
     c = db.cursor()
     #c.execute("select * from users where id = 1")
     c.execute("select * from users")
@@ -50,9 +53,22 @@ def root():
         idx +=1
         if idx > 9994:
             print(row)
-
+            
     #for row in c:
     #    print(row)
+
+# ルート( / )へアクセスがあった時の処理を記述 --- (*2)
+@app.route("/")
+def root():
+    
+    # テーブル作成
+    createTable()
+
+    # データのインサート
+    insertTable()
+
+    #データの読み出し
+    readTable()
 
     return "Hello world"
 
