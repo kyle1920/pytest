@@ -18,7 +18,7 @@ app = Flask(__name__)
 # ルート( / )へアクセスがあった時の処理を記述 --- (*2)
 @app.route("/")
 def root():
-    import test02.py
+    import test02
 
     return "Hello"
 
