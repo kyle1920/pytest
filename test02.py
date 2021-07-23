@@ -1,9 +1,6 @@
 import sqlite3
-#from ddtrace import Pin, patch, tracer
-#tracer.enabled = False
-
-
-#patch(sqlite3=True)
+from ddtrace import Pin, patch
+patch(sqlite3=True)
 
 db = sqlite3.connect(":memory:")
 sql = """
