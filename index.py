@@ -16,14 +16,14 @@ patch(sqlite3=True)
 # Flaskオブジェクトの生成 --- (*1)
 app = Flask(__name__)
 
-# dbオブジェクトの生成
-db = sqlite3.connect(":memory:")
-
 # sql文字列の初期化
 sql = ""
 
 # テーブル作成
 def createTable():
+
+    # dbオブジェクトの生成
+    db = sqlite3.connect(":memory:")
 
     sql = """
     create table users (
@@ -38,6 +38,10 @@ def createTable():
 
 # データのインサート
 def insertTable():
+
+    # dbオブジェクトの生成
+    db = sqlite3.connect(":memory:")
+
     for num in range(10000):
     #for num in range(5):
     #    print(str(num))
@@ -48,6 +52,10 @@ def insertTable():
 
 #データの読み出し
 def readTable():
+
+    # dbオブジェクトの生成
+    db = sqlite3.connect(":memory:")
+
     c = db.cursor()
     #c.execute("select * from users where id = 1")
     c.execute("select * from users")
