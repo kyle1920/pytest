@@ -2,8 +2,6 @@ import sqlite3
 from ddtrace import Pin, patch
 patch(sqlite3=True)
 
-print("test02.py")
-
 def createTable():
 
     db = sqlite3.connect(":memory:")
@@ -34,8 +32,8 @@ def readTable():
     #for row in c:
     #    print(row)
 
-    print("createTable")
-    createTable()
+print("createTable")
+createTable()
 
-    print("readTable")
-    readTable()
+print("readTable")
+readTable()
