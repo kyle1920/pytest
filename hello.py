@@ -20,7 +20,7 @@ app = Flask(__name__)
 def root():
     import test02
 
-    return "Hello"
+    return "Hello world"
 
     #   tagと値を作る
     #tags = ['version:1', 'application:web']
