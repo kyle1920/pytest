@@ -32,6 +32,8 @@ def readTable():
     #for row in c:
     #    print(row)
 
+    print("createTable")
     createTable()
 
+    print("readTable")
     readTable()
