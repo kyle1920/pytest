@@ -1,5 +1,6 @@
 import sqlite3
-#from ddtrace import Pin, patch
+from ddtrace import Pin, patch, tracer
+tracer.enabled = False
 
 
 #patch(sqlite3=True)
