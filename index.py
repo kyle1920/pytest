@@ -35,6 +35,7 @@ def createTable():
     db.execute(sql)
 
 # データのインサート
+@tracer.wrap('insertTable', service='sample-app')
 def insertTable():
     for num in range(10000):
     #for num in range(5):
@@ -53,7 +54,7 @@ def readTable():
         idx +=1
         if idx > 9994:
             print(row)
-            
+
     #for row in c:
     #    print(row)
 
