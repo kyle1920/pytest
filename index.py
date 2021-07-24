@@ -84,9 +84,7 @@ def root():
     #テーブルの削除
     dropTable()
 
-    return "Hello world"
-
-    #   tagと値を作る
+        #   tagと値を作る
     tags = ['version:1', 'application:web']
     value=random.randint(0, 100)
 
@@ -96,6 +94,8 @@ def root():
     #   metricのgauge
     #metric="myapp.testdata.gauge"
     #statsd.gauge(metric, value, tags=tags)
+
+    return "Hello world"
 
 # サーバーを起動 --- (*3)
 if __name__ == "__main__":
