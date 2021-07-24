@@ -54,11 +54,19 @@ def readTable():
     idx = 0
     for row in c:
         idx +=1
-        if idx > 9994:
+        if idx > 99994:
             print(row)
 
     #for row in c:
     #    print(row)
+
+#SQLエラー発生
+@tracer.wrap('readErr', service='sample-app')
+def readErr():
+    c = db.cursor()
+    c.execute("select name from users group by id")
+    for row in c:
+        print(row)
 
 # ルート( / )へアクセスがあった時の処理を記述 --- (*2)
 @app.route("/")
