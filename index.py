@@ -40,11 +40,22 @@ def createTable():
 # データのインサート
 @tracer.wrap('insertTable', service='sample-app')
 def insertTable():
-    for num in range(10000):
+
+    value = random.randint(100, 10000)
+
+    for num in range(value):
     #for num in range(5):
     #    print(str(num))
         sql = "insert into users values (" + str(num + 1) + ", 'foo', 'bar')"
         db.execute(sql)
+
+        #   tagと値を作る
+        tags = ['version:1', 'application:web']
+        
+        #   metricのgauge
+        metric="myapp.testdata.gauge"
+        statsd.gauge(metric, value, tags=tags)
+
 
 # データの読み出し
 @tracer.wrap('readTable', service='sample-app')
@@ -61,14 +72,6 @@ def readTable():
 
     #for row in c:
     #    print(row)
-
-        #   tagと値を作る
-        tags = ['version:1', 'application:web']
-        value=random.randint(0, 100)
-
-        #   metricのgauge
-        metric="myapp.testdata.gauge"
-        statsd.gauge(metric, value, tags=tags)
 
 # テーブルの削除
 @tracer.wrap('dropTable', service='sample-app')
