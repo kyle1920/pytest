@@ -80,8 +80,7 @@ def root():
     readTable()
 
     #テーブルの削除
-    def dropTable():
-
+    dropTable()
 
     return "Hello world"
 
