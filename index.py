@@ -64,7 +64,7 @@ def readTable():
 @tracer.wrap('readErr', service='sample-app')
 def readErr():
     c = db.cursor()
-    c.execute("select name from users group by id")
+    c.execute("select * from users where id = true")
     for row in c:
         print(row)
 
