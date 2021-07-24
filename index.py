@@ -1,17 +1,19 @@
 # 必要なモジュールの取り込み
+import random
 import sqlite3
 from flask import Flask
 from datadog import initialize, statsd
 from ddtrace import Pin, patch, tracer
+
 patch(flask=True)
 patch(sqlite3=True)
 
-#options = {
-#    'statsd_host':'127.0.0.1',
-#    'statsd_port':8125
-#}
+options = {
+    'statsd_host':'127.0.0.1',
+    'statsd_port':8125
+}
 
-#initialize(**options)
+initialize(**options)
 
 # Flaskオブジェクトの生成 --- (*1)
 app = Flask(__name__)
@@ -85,12 +87,12 @@ def root():
     return "Hello world"
 
     #   tagと値を作る
-    #tags = ['version:1', 'application:web']
-    #value=random.randint(0, 100)
+    tags = ['version:1', 'application:web']
+    value=random.randint(0, 100)
 
     #   metricのset
-    #metric="myapp.testdata.set"
-    #statsd.set(metric, value, tags=tags)
+    metric="myapp.testdata.set"
+    statsd.set(metric, value, tags=tags)
     #   metricのgauge
     #metric="myapp.testdata.gauge"
     #statsd.gauge(metric, value, tags=tags)
