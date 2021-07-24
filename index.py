@@ -62,6 +62,14 @@ def readTable():
     #for row in c:
     #    print(row)
 
+        #   tagと値を作る
+        tags = ['version:1', 'application:web']
+        value=random.randint(0, 100)
+
+        #   metricのgauge
+        metric="myapp.testdata.gauge"
+        statsd.gauge(metric, value, tags=tags)
+
 # テーブルの削除
 @tracer.wrap('dropTable', service='sample-app')
 def dropTable():
@@ -84,16 +92,16 @@ def root():
     #テーブルの削除
     dropTable()
 
-        #   tagと値を作る
-    tags = ['version:1', 'application:web']
-    value=random.randint(0, 100)
+    #   tagと値を作る
+    #tags = ['version:1', 'application:web']
+    #value=random.randint(0, 100)
 
     #   metricのset
     #metric="myapp.testdata.set"
     #statsd.set(metric, value, tags=tags)
     #   metricのgauge
-    metric="myapp.testdata.gauge"
-    statsd.gauge(metric, value, tags=tags)
+    #metric="myapp.testdata.gauge"
+    #statsd.gauge(metric, value, tags=tags)
 
     return "Hello world"
 
