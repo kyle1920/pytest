@@ -81,6 +81,9 @@ def root():
     #データの読み出し
     readTable()
 
+    #エラー発生
+    readErr()
+
     return "Hello world"
 
     #   tagと値を作る
