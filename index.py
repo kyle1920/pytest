@@ -44,7 +44,7 @@ def insertTable():
         sql = "insert into users values (" + str(num + 1) + ", 'foo', 'bar')"
         db.execute(sql)
 
-#データの読み出し
+# データの読み出し
 @tracer.wrap('readTable', service='sample-app')
 def readTable():
     c = db.cursor()
@@ -60,13 +60,11 @@ def readTable():
     #for row in c:
     #    print(row)
 
-#SQLエラー発生
-@tracer.wrap('readErr', service='sample-app')
-def readErr():
-    c = db.cursor()
-    c.execute("select * from users where id = true")
-    for row in c:
-        print(row)
+# テーブルの削除
+@tracer.wrap('dropTable', service='sample-app')
+def dropTable():
+    sql = "drop table users"
+    db.execute(sql)
 
 # ルート( / )へアクセスがあった時の処理を記述 --- (*2)
 @app.route("/")
@@ -81,8 +79,9 @@ def root():
     #データの読み出し
     readTable()
 
-    #エラー発生
-    readErr()
+    #テーブルの削除
+    def dropTable():
+
 
     return "Hello world"
 
