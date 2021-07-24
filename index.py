@@ -89,11 +89,11 @@ def root():
     value=random.randint(0, 100)
 
     #   metricのset
-    metric="myapp.testdata.set"
-    statsd.set(metric, value, tags=tags)
+    #metric="myapp.testdata.set"
+    #statsd.set(metric, value, tags=tags)
     #   metricのgauge
-    #metric="myapp.testdata.gauge"
-    #statsd.gauge(metric, value, tags=tags)
+    metric="myapp.testdata.gauge"
+    statsd.gauge(metric, value, tags=tags)
 
     return "Hello world"
 
