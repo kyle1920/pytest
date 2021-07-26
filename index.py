@@ -5,6 +5,10 @@ from flask import Flask
 from datadog import initialize, statsd
 from ddtrace import Pin, patch, tracer
 
+
+
+
+
 patch(flask=True)
 patch(sqlite3=True)
 
