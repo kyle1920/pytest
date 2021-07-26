@@ -1,2 +1,2 @@
 #!/bin/sh
-python3 ./index.py
+python3 ./index.py &
