@@ -1,5 +1,5 @@
-from datadog import initialize, statsd
-from ddtrace import Pin, patch
+#from datadog import initialize, statsd
+#from ddtrace import Pin, patch
 patch(flask=True)
 
 #options = {
@@ -18,7 +18,7 @@ app = Flask(__name__)
 # ルート( / )へアクセスがあった時の処理を記述 --- (*2)
 @app.route("/")
 def root():
-    import test02
+#    import test02
 
     return "Hello world"
 
