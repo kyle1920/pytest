@@ -3,10 +3,13 @@ from flask import *
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET", "POST"])
-def main_page():
-    #return render_template("mainpage.html")
-    return render_template("index.html")
+# postのときの処理	
+@app.route('/', methods=['POST'])
+def post():
+	memo = request.form['memo']
+	return render_template('index.html',
+    title = 'Form Sample(post)',
+    message = '入力された内容は{}です'.format(memo))
 
 
 @app.route("/<name>", methods=["GET", "POST"])
