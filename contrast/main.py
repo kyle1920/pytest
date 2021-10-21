@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, render_template_string
 
 app = Flask(__name__)
 
+from contrast.flask import ContrastMiddleware
+app.wsgi_app = ContrastMiddleware(app)
+
 # getのときの処理
 @app.route('/', methods=['GET'])
 def get():
