@@ -8,7 +8,6 @@ app = Flask(__name__)
 def post():
 	memo = request.form['memo']
 	return render_template('index.html',
-    title = 'Form Sample(post)',
     message = '入力された内容は{}です'.format(memo))
 
 
