@@ -18,7 +18,7 @@ def get():
 def post():
 	name = request.form['name']
 
-	t = Template(name)
+	t = Template('index.html',name)
 	return t.render()
 
 	#return render_template('index.html', \
