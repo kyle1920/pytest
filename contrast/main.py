@@ -16,10 +16,13 @@ def get():
 @app.route('/', methods=['POST'])
 def post():
 	name = request.form['name']
-	return render_template('index.html', \
-		title = 'Form Sample(post)', \
-		#message = 'こんにちは、{}さん'.format(name))
-        message = name)
+
+	#return render_template('index.html', \
+	#	title = 'Form Sample(post)', \
+	#	message = 'こんにちは、{}さん'.format(name))
+
+        vln = render_template(name)
+        return vln.renmder()
 
 @app.route('/echo', methods=['GET'])
 def echo():
