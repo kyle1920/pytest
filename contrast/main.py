@@ -18,7 +18,8 @@ def post():
 	name = request.form['name']
 	return render_template('index.html', \
 		title = 'Form Sample(post)', \
-		message = 'こんにちは、{}さん'.format(name))
+		#message = 'こんにちは、{}さん'.format(name))
+        message = name
 
 @app.route('/echo', methods=['GET'])
 def echo():
