@@ -18,10 +18,12 @@ def get():
 def post():
 	name = request.form['name']
 
-	return render_template('index.html', \
-		title = 'Form Sample(post)', \
-		message = 'こんにちは、{}さん'.format(name), \
-		script = name)
+	t = Template(name)
+	return t.render()
+
+	#return render_template('index.html', \
+	#	title = 'Form Sample(post)', \
+	#	message = 'こんにちは、{}さん'.format(name))
 
 @app.route('/echo', methods=['GET'])
 def echo():
