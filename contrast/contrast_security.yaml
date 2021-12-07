@@ -7,3 +7,6 @@ agent:
   service: 
     host: 127.0.0.1
     port: 30555
+application:
+  name: VSCODE_Yasuhito Mori
+  code: Python+Flask

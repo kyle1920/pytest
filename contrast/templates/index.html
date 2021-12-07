@@ -8,8 +8,16 @@
         <p>{{ message }}</p>
         <form action="/" method="POST" enctype="multipart/form-data">
             <div>
+                <label for="name">ＩＤ：</label>
+                <input type="text" id="id" name="id" placeholder="ＩＤ">	
+            </div>
+            <div>
                 <label for="name">名前：</label>
                 <input type="text" id="name" name="name" placeholder="名前">	
+            </div>
+            <div>
+                <label for="name">年齢：</label>
+                <input type="text" id="age" name="age" placeholder="年齢">	
             </div>
             <div>
                 <input type="submit" value="送信">
