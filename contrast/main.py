@@ -80,13 +80,13 @@ def post():
 
 	insertTable(id, name, age)
 
-	return redirect(url_for('saved'))
+	return redirect(url_for('saved', name=name))
 
 @app.route('/saved')
 def saved():
 	return render_template('index2.html', \
 		title = 'Python Flask Sample', \
-		message = 'データが挿入されました。')
+		message = request.args.get('name') + ' さんのデータが挿入されました。')
 
 
 @app.route('/user')
