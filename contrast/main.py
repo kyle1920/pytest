@@ -37,7 +37,7 @@ def createTable():
 		"""
 		db.execute(sql)
 
-db.close()
+
 
 # テーブルにインサート
 def insertTable(strID, strName, strAge):
